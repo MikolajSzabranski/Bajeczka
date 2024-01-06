@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Bajeczkav2.props" />
+</Project>
