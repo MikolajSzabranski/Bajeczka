@@ -6,29 +6,28 @@ using Microsoft.AspNetCore.Mvc;
 
 public class MovieController : Controller
 {
-    // Przykładowa lista filmów
-    private static List<Movie> movies = new List<Movie>
+    private static List<MovieEntity> movies = new List<MovieEntity>
     {
-        new Movie(1, "Film 1", "Akcja", new DateTime(2023, 1, 1)),
-        new Movie(2, "Film 2", "Komedia", new DateTime(2023, 2, 15)),
-        new Movie(3, "Film 3", "Dramat", new DateTime(2023, 3, 30))
+        new MovieEntity("null", "Film 1", new DateTime(2023, 1, 1)),
+        new MovieEntity("null", "Film 2", new DateTime(2023, 2, 15)),
+        new MovieEntity("null", "Film 3", new DateTime(2023, 3, 30))
     };
-
-    // Akcja wyświetlająca listę filmów
+    
     public ActionResult Index()
     {
+        // List<MovieEntity> movies = _context.Filmy.ToList();
         return View(movies);
     }
 
-    // Akcja wyświetlająca szczegóły filmu
     public ActionResult Details(int id)
     {
-        Movie movie = movies.FirstOrDefault(m => m.Id == id);
-        if (movie == null)
-        {
-            return NotFound();
-        }
-
-        return View(movie);
+        // MovieEntity movie = movies.FirstOrDefault(m => m.Id == id);
+        // if (movie == null)
+        // {
+        //     return NotFound();
+        // }
+        //
+        // return View(movie);
+        return View(movies);
     }
 }
