@@ -1,5 +1,5 @@
-﻿@page
-@model IndexModel
+﻿@model List<MovieEntity>
+
 @{
     ViewData["Title"] = "Home page";
 }
@@ -9,48 +9,35 @@
 </div>
 
 <ul id="ul_movie_image">
-    <li id="li_movie_image">
-        <a href="#todo - przekierowanie">
-            <img src="sciezka/do/obrazka1.jpg" alt="Tytuł Filmu 1">
-        </a>
-        <h2>Tytuł Filmu 1</h2>
-        <p>Gatunek: Akcja</p>
-        <p>Data premiery: 1 stycznia 2023</p>
-    </li>
-    <li id="li_movie_image">
-        <a href="">
-            <img src="sciezka/do/obrazka2.jpg" alt="Tytuł Filmu 2">
-        </a>
-        <h2>Tytuł Filmu 2</h2>
-        <p>Gatunek: Komedia</p>
-        <p>Data premiery: 15 lutego 2023</p>
-    </li>
-    <li id="li_movie_image">
-        <a href="">
-            <img src="sciezka/do/obrazka3.jpg" alt="Tytuł Filmu 3">
-        </a>
-        <h2>Tytuł Filmu 3</h2>
-        <p>Gatunek: Dramat</p>
-        <p>Data premiery: 30 marca 2023</p>
-    </li>
+    @foreach (var movie in Model)
+    {
+        <li id="li_movie_image">
+            <a href="@Url.Action("Details", new { id = movie.Id })">
+                <img src="sciezka/do/obrazka@movie.Id.jpg" alt="@movie.Title">
+            </a>
+            <h2>@movie.Title</h2>
+            <p>Data premiery: @movie.ReleaseDate.ToString("D")</p>
+        </li>
+    }
 </ul>
+
 <style>
-        #ul_movie_image {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-        }
+    #ul_movie_image {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-        #li_movie_image {
-            width: 30%;
-            margin: 10px;
-            box-sizing: border-box;
-        }
+    #li_movie_image {
+        width: 30%;
+        margin: 10px;
+        box-sizing: border-box;
+    }
 
-        img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
