@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("Uzytkownicy")]
+[Table("uzytkownicy")]
 public class UserEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("uzytkownikid")]
-    public int UserId { get; set; }
+    public int Id { get; set; }
     
     [Column("imie")]
     public string FirstName { get; set; }
@@ -20,12 +20,12 @@ public class UserEntity
     [Column("haslo")]
     public string Password { get; set; }
     
-    [Column("DataUtworzeniaKonta")]
-    [DataType(DataType.DateTime)]
-    public DateTime AccountCreationDate { get; set; }
+//    [Column("datautworzeniakonta")]
+  //  [DataType(DataType.DateTime)]
+    //public DateTime AccountCreationDate { get; set; }
     
-    [Column("LiczbaZakupionychBiletow")]
-    public int PurchasedTicketsCount { get; set; }
+  //  [Column("LiczbaZakupionychBiletow")]
+    //public int PurchasedTicketsCount { get; set; }
     
     // public ICollection<Ticket> Tickets { get; set; }
 }

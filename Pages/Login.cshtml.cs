@@ -1,13 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 public class LoginModel : PageModel
 {
+    private readonly ApplicationDbContext _context;
+
     [BindProperty]
     public string Username { get; set; }
 
     [BindProperty]
     public string Password { get; set; }
+//
+    private readonly IConfiguration _configuration;
+
+    public LoginModel(ApplicationDbContext context, IConfiguration configuration)
+    {
+        _context = context;
+        _configuration = configuration;
+        _configuration = configuration;
+    }
+//
+    // public LoginModel(ApplicationDbContext context)
+    // {
+    //     _context = context;
+    // }
 
     public IActionResult OnGet()
     {
@@ -15,10 +35,10 @@ public class LoginModel : PageModel
         return Page();
     }
 
-    public IActionResult OnPost()
+    public async Task<IActionResult> OnPostAsync()
     {
         // Check username and password, perform authentication logic
-        if (IsValidUser(Username, Password))
+        if (await IsValidUserAsync(Username, Password))
         {
             // Przekierowanie po pomyślnej autentykacji
             return RedirectToPage("/Index");
@@ -30,10 +50,10 @@ public class LoginModel : PageModel
         }
     }
 
-    private bool IsValidUser(string username, string password)
+    private async Task<bool> IsValidUserAsync(string username, string password)
     {
-        // Tutaj możesz implementować bardziej skomplikowaną logikę autentykacji
-        // W tym przypadku załóżmy, że poprawne dane to "admin" jako nazwa użytkownika i "admin123" jako hasło
-        return username == "admin" && password == "admin123";
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Login == username);
+        return user != null && user.Password == password;
+ 		//return username == "admin" && password == "admin123";
     }
 }

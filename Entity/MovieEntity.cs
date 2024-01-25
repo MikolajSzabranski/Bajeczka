@@ -12,7 +12,7 @@ public class MovieEntity
     [Column("filmid")]
     public int Id { get; set; }
 
-    [Column("DataPremiery")]
+    [Column("datapremiery")]
     [DataType(DataType.Date)]
     public DateTime ReleaseDate { get; set; }
 

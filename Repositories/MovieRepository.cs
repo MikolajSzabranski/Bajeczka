@@ -6,8 +6,8 @@ public class MovieRepository
 {
     private static List<MovieEntity> movies = new List<MovieEntity>
     {
-        new MovieEntity("null", "Film 1", new DateTime(2023, 1, 1)),
-        new MovieEntity("null", "Film 2", new DateTime(2023, 2, 15)),
+        new MovieEntity("1", "Film 1", new DateTime(2023, 1, 1)),
+        new MovieEntity("2", "Film 2", new DateTime(2023, 2, 15)),
     };
 
     public List<MovieEntity> GetAllMovies()

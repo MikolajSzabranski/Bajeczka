@@ -1,7 +1,64 @@
-﻿@page
+﻿@page "/Movies"
 @model MovieModel
 @{
-    ViewData["Title"] = "Movie";
+    ViewData["Title"] = "Movies";
 }
 <h1>@ViewData["Title"]</h1>
 
+<ul id="ul_movie_image">
+    @if (Model != null && Model.Movies != null)
+    {
+        @foreach (var movie in Model.Movies)
+        {
+            <li id="li_movie_image">
+                <a href="@Url.Action("Details", new { id = movie.Id })">
+                    <img src="todo.ico" alt="@movie.Title">
+                </a>
+                <h2>@movie.Title</h2>
+                <p>Data premiery: @movie.ReleaseDate.ToString("D")</p>
+            </li>
+        }
+    }
+    else
+    {
+        <p>Brak dostępnych filmów.</p>
+    }
+</ul>
+
+
+<style>
+  #ul_movie_image {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 4 0px;
+      gap: 20px; /* Odstęp między kafelkami */
+      justify-content: center; /* Wyśrodkowanie zawartości w poziomie */
+      align-items: center; /* Wyśrodkowanie zawartości w pionie */
+  }
+    
+    #li_movie_image {
+        width: 200px; /* Szerokość kafelka */
+        padding: 10px;
+        border: 1px solid #ddd; /* Ramka kafelka */
+        border-radius: 10px; /* Zaokrąglone narożniki kafelka */
+        background-color: #f5f5f5; /* Lekko beżowe tło */
+    }
+    
+    #li_movie_image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px; /* Zaokrąglone narożniki obrazka */
+    }
+    
+    #li_movie_image h2 {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    
+    #li_movie_image p {
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+</style>
