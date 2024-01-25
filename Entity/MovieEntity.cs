@@ -25,6 +25,7 @@ public class MovieEntity
     // public ICollection<Show> Shows { get; set; }
     public MovieEntity(string Image, string Title, DateTime ReleaseDate)
     {
+		//this.Id = null;
         this.ReleaseDate = ReleaseDate;
         this.Image = Image;
         this.Title = Title;

@@ -1,25 +1,30 @@
-﻿@model List<MovieEntity>
+﻿@page "/home"
+@model Models.MovieViewModel
 
 @{
     ViewData["Title"] = "Home page";
 }
-
-<div class="text-center">
-    <p>Projekt Aip</p>
-</div>
-
+	
 <ul id="ul_movie_image">
-    @foreach (var movie in Model)
+    @if (Model != null && Model.Movies != null)
     {
-        <li id="li_movie_image">
-            <a href="@Url.Action("Details", new { id = movie.Id })">
-                <img src="sciezka/do/obrazka@movie.Id.jpg" alt="@movie.Title">
-            </a>
-            <h2>@movie.Title</h2>
-            <p>Data premiery: @movie.ReleaseDate.ToString("D")</p>
-        </li>
+        @foreach (var movie in Model.Movies)
+        {
+            <li id="li_movie_image">
+                <a href="@Url.Action("Details", new { id = movie.Id })">
+                    <img src="todo.ico" alt="@movie.Title">
+                </a>
+                <h2>@movie.Title</h2>
+                <p>Data premiery: @movie.ReleaseDate.ToString("D")</p>
+            </li>
+        }
+    }
+    else
+    {
+        <p>Brak dostępnych filmów.</p>
     }
 </ul>
+
 
 <style>
     #ul_movie_image {

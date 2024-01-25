@@ -28,3 +28,4 @@ C:\Users\mikol\Desktop\Bajeczkav2\obj\Debug\net8.0\refint\Bajeczkav2.dll
 C:\Users\mikol\Desktop\Bajeczkav2\obj\Debug\net8.0\Bajeczkav2.pdb
 C:\Users\mikol\Desktop\Bajeczkav2\obj\Debug\net8.0\Bajeczkav2.genruntimeconfig.cache
 C:\Users\mikol\Desktop\Bajeczkav2\obj\Debug\net8.0\ref\Bajeczkav2.dll
+C:\Users\mikol\Desktop\Bajeczkav2\obj\Debug\net8.0\Bajeczkav2.sourcelink.json
