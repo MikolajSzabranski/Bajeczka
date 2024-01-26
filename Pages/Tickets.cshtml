@@ -1,6 +1,31 @@
 ﻿@page "/Tickets"
-@model TicketModel
-@{
-    ViewData["Title"] = "Tickets";
+@model List<TicketEntity>
+
+<h2>Your Tickets</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table>
+        <thead>
+        <tr>
+            <th>Showtime</th>
+            <th>Customer Name</th>
+            <th>Number of Tickets</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var ticket in Model)
+        {
+            <tr>
+                @* <td>@ticket.Showtime.ShowDate.ToString("D") @ticket.Showtime.ShowTime.ToString("t")</td> *@
+                @* <td>@ticket.CustomerName</td> *@
+                @* <td>@ticket.NumberOfTickets</td> *@
+            </tr>
+        }
+        </tbody>
+    </table>
 }
-<h1>@ViewData["Title"]</h1>
+else
+{
+    <p>No tickets available for this user.</p>
+}

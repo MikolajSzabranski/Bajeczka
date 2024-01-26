@@ -16,6 +16,8 @@ public class ApplicationDbContext : DbContext
     
     public DbSet<UserEntity> Users { get; set; }
 	public DbSet<MovieEntity> Movies { get; set; }
+	public DbSet<ShowEntity> Showtimes { get; set; }
+	public DbSet<TicketEntity> Tickets { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("Bilety")]
+[Table("bilety")]
 public class TicketEntity
 {
-    // [Key]
-    // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    // public int TicketId { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("biletid")]
+    public int Id { get; set; }
     //
-    // [Column("DataZakupu")]
+    // [Column("datazakupu")]
     // [DataType(DataType.DateTime)]
     // public DateTime PurchaseDate { get; set; }
     //
+    // [Column("seansid")]   
     // public int ShowId { get; set; }
-    // public Show Show { get; set; }
     //
+    // [Column("uzytkownikid")]
     // public int UserId { get; set; }
-    // public ApplicationUser User { get; set; }
 }

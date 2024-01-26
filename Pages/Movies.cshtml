@@ -10,9 +10,9 @@
     {
         @foreach (var movie in Model.Movies)
         {
-            <li id="li_movie_image">
+            <li id="li_movie_image" data-movie-id="@movie.Id">
                 <a href="@Url.Action("Details", new { id = movie.Id })">
-                    <img src="todo.ico" alt="@movie.Title">
+                    <img src="todo.ico" alt=" ">
                 </a>
                 <h2>@movie.Title</h2>
                 <p>Data premiery: @movie.ReleaseDate.ToString("D")</p>
@@ -24,7 +24,6 @@
         <p>Brak dostępnych filmów.</p>
     }
 </ul>
-
 
 <style>
   #ul_movie_image {
@@ -62,3 +61,21 @@
     }
 
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Pobierz wszystkie kafelki filmów
+        var movieTiles = document.querySelectorAll("#ul_movie_image li");
+
+        // Dodaj obsługę kliknięcia do każdego kafelka filmu
+        movieTiles.forEach(function (tile) {
+            tile.addEventListener("click", function () {
+                // Pobierz identyfikator filmu z atrybutu data-movie-id
+                var movieId = tile.getAttribute("data-movie-id");
+
+                // Przekieruj użytkownika na stronę z seansami danego filmu
+                window.location.href = "/Showtimes/Index?movieId=" + movieId;
+            });
+        });
+    });
+</script>
