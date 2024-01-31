@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 public class LoginModel : PageModel
 {
@@ -14,19 +17,11 @@ public class LoginModel : PageModel
 
     [BindProperty]
     public string Password { get; set; }
-//
-    private readonly IConfiguration _configuration;
 
-    public LoginModel(ApplicationDbContext context, IConfiguration configuration)
+    public LoginModel(ApplicationDbContext context)
     {
         _context = context;
-        _configuration = configuration;
     }
-//
-    // public LoginModel(ApplicationDbContext context)
-    // {
-    //     _context = context;
-    // }
 
     public IActionResult OnGet()
     {
@@ -51,8 +46,23 @@ public class LoginModel : PageModel
 
     private async Task<bool> IsValidUserAsync(string username, string password)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Login == username);
-        return user != null && user.Password == password;
- 		//return username == "admin" && password == "admin123";
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Login == username && u.Password == password);
+
+        if (user != null)
+        {
+            // Utwórz identyfikator uwierzytelniania z wykorzystaniem Claim
+            var claims = new[] { new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) };
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // Utwórz principal
+            var principal = new ClaimsPrincipal(identity);
+
+            // Zaloguj użytkownika
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return true;
+        }
+
+        return false;
     }
 }
