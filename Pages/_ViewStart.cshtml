@@ -1,3 +1,7 @@
 ﻿@{
     Layout = "_Layout";
 }
+@using System.Security.Claims
+@{
+    ViewBag.userId = Context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+}
