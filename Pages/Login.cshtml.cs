@@ -21,7 +21,6 @@ public class LoginModel : PageModel
     {
         _context = context;
         _configuration = configuration;
-        _configuration = configuration;
     }
 //
     // public LoginModel(ApplicationDbContext context)
