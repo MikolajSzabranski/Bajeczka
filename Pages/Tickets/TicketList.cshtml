@@ -1,0 +1,74 @@
+﻿@page "/Tickets"
+@model TicketListModel
+@{
+    ViewData["Title"] = "Lista Biletów";
+    Layout = "_Layout";
+}
+@using System.Security.Claims
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Tickets != null && Model.Tickets.Any())
+{
+    <table class="table ticket-table">
+        <thead>
+            <tr>
+                @* <th>Numer biletu</th> *@
+                <th>Data zakupu</th>
+                <th>Rodzaj biletu</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ticket in Model.Tickets)
+            {
+                <tr>
+                    @* <td>@ticket.Id</td> *@
+                    <td>@ticket.PurchaseDate.ToString("yyyy-MM-dd")</td>
+                    <td>@ticket.TicketType</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="ticket-table-empty">Brak biletów do wyświetlenia.</p>
+}
+
+<style>
+    /* Stylizacja tabeli */
+    .ticket-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+    
+    /* Stylizacja nagłówka tabeli */
+    .ticket-table th {
+        background-color: #f2f2f2;
+        padding: 12px;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #ddd;
+    }
+    
+    /* Stylizacja komórek w tabeli */
+    .ticket-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+    }
+    
+    /* Alternatywne tło dla wierszy */
+    .ticket-table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    /* Stylizacja komunikatu, gdy brak biletów */
+    .ticket-table-empty {
+        margin-top: 20px;
+        color: #888;
+        text-align: center;
+    }
+</style>
