@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Bajeczkav2.Controllers;
 
 [Table("bilety")]
 public class TicketEntity
@@ -17,6 +18,9 @@ public class TicketEntity
     
 	[Column("seansid")]   
     public int ShowtimeId { get; set; }
+    
+    [Column("rodzaj")]   
+    public string TicketType { get; set; }
     
     [Column("uzytkownikid")]
     public int UserId { get; set; }
