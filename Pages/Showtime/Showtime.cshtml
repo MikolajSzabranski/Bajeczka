@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Seanse";
 }
-
+@using System.Security.Claims
+@{
+    Layout = "_Layout";
+}
 <h1>@ViewData["Title"]</h1>
 
 @if (Model != null && Model.Showtimes != null)
@@ -16,7 +19,8 @@
                 <p>Godzina: @showtime.ShowTime.ToString("t")</p>
                 <form method="post" action="@Url.Action("OnPostPurchaseTicket", "Ticket")">
                     <input type="hidden" name="ShowtimeId" value="@showtime.Id" />
-					<button class="buy-button" asp-page="/BuyTicket" asp-route-showtimeId="@showtime.Id">Kup bilet</button>
+ 					<input type="hidden" name="UserId" value="@ViewBag.userId" />
+					<button class="buy-button" asp-page="/BuyTicket" >Kup bilet</button>
                 </form>
             </li>
         }
