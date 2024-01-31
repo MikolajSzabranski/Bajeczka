@@ -1,0 +1,105 @@
+﻿@page "/register"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <div class="register-form">
+        <form method="post">
+            <div>
+                <label for="newFirstName">First name:</label>
+                <input type="text" id="newFirstName" name="newFirstName" required />
+            </div>
+             <div>
+                <label for="newLastName">Last name:</label>
+                <input type="text" id="newLastName" name="newLastName" required />
+            </div>
+            <div>
+                <label for="newLogin">New login:</label>
+                <input type="text" id="newLogin" name="newLogin" required />
+            </div>
+            <div>
+                <label for="newPassword">New password:</label>
+                <input type="password" id="newPassword" name="newPassword" required />
+            </div>
+            <div>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+
+<style> 
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .register-form {
+        max-width: 400px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .register-link {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .register-link a {
+        color: #3498db;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .register-link a:hover {
+        color: #2980b9;
+    }
+
+    .login-form,
+    .register-form {
+        width: 45%; /* Lub dowolny inny procentowy rozmiar */
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    div {
+        margin-bottom: 15px;
+    }
+</style>
