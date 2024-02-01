@@ -17,11 +17,13 @@ public class ShowtimeModel : PageModel
     }
 
     public List<ShowEntity> Showtimes { get; set; }
+    public int MovieId { get; set; }
 
     public async Task OnGetAsync(int movieId)
     {
         try
         {
+            MovieId = movieId;
             Showtimes = await _context.Showtimes
                 .Where(s => s.MovieId == movieId)
                 .OrderBy(s => s.ShowDate)

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Bajeczkav2.Controllers;
+using Bajeczkav2.Models;
 
 public class RegisterModel : PageModel
 {
@@ -59,6 +61,7 @@ public class RegisterModel : PageModel
             FirstName = NewLogin,
             LastName = NewLogin,
             Login = NewLogin,
+            AccountType = AccountType.NORMAL.ToString(),
             Password = NewPassword,
         };
         _context.Users.Add(newUser);

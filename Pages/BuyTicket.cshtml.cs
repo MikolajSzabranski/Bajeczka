@@ -20,9 +20,11 @@ public class BuyTicketModel : PageModel
         _context = context;
     }
    
-    //public List<ShowEntity> Tickets { get; set; }
     [BindProperty]
     public int ShowtimeId { get; set; }
+    
+    [BindProperty]
+    public string UserId { get; set; }
 
     [BindProperty]
     public TicketType TicketType { get; set; }
@@ -31,17 +33,18 @@ public class BuyTicketModel : PageModel
     {
         try
         {
+            Console.WriteLine(ShowtimeId);
+            Console.WriteLine(UserId);
             var newTicket = new TicketEntity
             {
                 ShowtimeId = ShowtimeId,
-                UserId = 1,
+                UserId = 1,//Int32.Parse(UserId),
                 PurchaseDate = DateTime.UtcNow,
                 TicketType = TicketType.ToString()
             };
-            Console.WriteLine(newTicket.TicketType);
             _context.Tickets.Add(newTicket);
             await _context.SaveChangesAsync();
-            
+    
             return RedirectToPage("/Movies");
         }
         catch (Exception ex)

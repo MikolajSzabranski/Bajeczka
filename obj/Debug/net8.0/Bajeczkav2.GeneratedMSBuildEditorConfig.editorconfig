@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mikol\Desktop\Bajeczkav2
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/mikol/Desktop/Bajeczkav2/Pages/AddShowtimeModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkU2hvd3RpbWVNb2RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mikol/Desktop/Bajeczkav2/Pages/BuyTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnV5VGlja2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mikol/Desktop/Bajeczkav2/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mikol/Desktop/Bajeczkav2/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mikol/Desktop/Bajeczkav2/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,12 +54,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mikol/Desktop/Bajeczkav2/Pages/Showtime.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWUuY3NodG1s
+[C:/Users/mikol/Desktop/Bajeczkav2/Pages/Showtime/Showtime.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVcU2hvd3RpbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mikol/Desktop/Bajeczkav2/Pages/Tickets.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGlja2V0cy5jc2h0bWw=
+[C:/Users/mikol/Desktop/Bajeczkav2/Pages/Tickets/TicketList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGlja2V0c1xUaWNrZXRMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mikol/Desktop/Bajeczkav2/Pages/_ViewImports.cshtml]

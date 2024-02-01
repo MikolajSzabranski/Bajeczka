@@ -19,6 +19,8 @@ public class UserEntity
     public string Login { get; set; }
     [Column("haslo")]
     public string Password { get; set; }
+    [Column("typ_konta")]
+    public string AccountType { get; set; }
     
 //    [Column("datautworzeniakonta")]
   //  [DataType(DataType.DateTime)]
